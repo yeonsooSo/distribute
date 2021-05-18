@@ -20,7 +20,7 @@ def post_create(req):
 
 def post_read(req, id):
     blog_object = get_object_or_404(Blog, pk=id)
-    return render(req, 'detail.html', {'data': blog_object})
+    return render(req, 'post_read.html', {'data': blog_object})
 
 
 def post_update(req, id):
@@ -30,7 +30,7 @@ def post_update(req, id):
         blog_object.body = req.POST['body']
         blog_object.save()
         return redirect('/blog/'+str(blog_object.id))
-    return render(req, 'post_update.html')
+    return render(req, 'post_update.html', {'data': blog_object})
 
 
 def post_delete(req, id):
