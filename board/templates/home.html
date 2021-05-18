@@ -1,0 +1,10 @@
+<h1>Blog Project</h1>
+<a href="{% url 'post_create' %}">글쓰기</a>
+<div class="container">
+  {% for article in data %}
+  <div>
+    <a href="{%url 'post_read' article.id %}"><h3>{{article.title}}</h3></a>
+    <br />
+  </div>
+  {% endfor %}
+</div>
